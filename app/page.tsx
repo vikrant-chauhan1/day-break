@@ -10,6 +10,13 @@ export default function Home() {
   const router = useRouter();
   const [user,setUser] = useState<any>(null);
 
+  const handleContactUs = async ()=>{
+    router.push("/about")
+  }
+  const handleGetStarted =async()=>{
+    router.push("/auth")
+  }
+
   useEffect(()=>{
     const fetchUser = async()=>{
       const {data} = await supabase.auth.getUser();
@@ -41,7 +48,7 @@ export default function Home() {
                   </a>
                 </li>
                 <li>
-                  <a href="#about" className="hover:underline">
+                  <a href="/about" className="hover:underline">
                     About
                   </a>
                 </li>
@@ -54,7 +61,7 @@ export default function Home() {
           <section className="py-20 text-center">
             <h1 className="text-4xl font-bold mb-4">Start Your Day Informed and Inspired</h1>
             <p className="mb-8 text-xl">Your all-in-one morning dashboard</p>
-            <button className="bg-black text-white rounded-lg px-4 py-2">Get Started</button>
+            <button onClick={handleGetStarted} className="bg-black text-white rounded-lg px-4 py-2">Get Started</button>
           </section>
   
           <section id="features" className="py-20 bg-gray-50">
@@ -94,7 +101,7 @@ export default function Home() {
             <div className="container mx-auto text-center">
               <h2 className="text-3xl font-bold mb-8">Get In Touch</h2>
               <p className="mb-8">Have questions or suggestions? We'd love to hear from you!</p>
-              <button className="bg-black text-white rounded-lg px-4 py-2">Contact Us</button>
+              <button onClick={handleContactUs} className="bg-black text-white rounded-lg px-4 py-2">Contact Us</button>
             </div>
           </section>
         </main>
@@ -102,6 +109,7 @@ export default function Home() {
         <footer className="py-6 border-t border-gray-200">
           <div className="container mx-auto text-center">
             <p>&copy; 2025 DayBreak. All rights reserved.</p>
+            <p>Made by <a href="https://github.com/vikrant-chauhan1">Vikrant Chauhan</a></p>
           </div>
         </footer>
       </div>
