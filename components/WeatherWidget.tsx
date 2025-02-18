@@ -9,7 +9,7 @@ export default function WeatherWidget() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [city, setCity] = useState(() => {
-    // Load saved city from localStorage or use default "Delhi"
+    
     return typeof window !== "undefined" ? localStorage.getItem("savedCity") || "Delhi" : "Delhi";
   });
 
@@ -44,7 +44,7 @@ export default function WeatherWidget() {
     }
   };
 
-  // Fetch weather when component mounts
+  
   useEffect(() => {
     fetchWeather(city);
   }, []);
@@ -53,8 +53,8 @@ export default function WeatherWidget() {
     <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-6 h-full flex flex-col items-center flex-grow">
       <h2 className="text-xl font-semibold mb-4">Weather</h2>
 
-      {/* Input Field for City Name */}
-      <div className="flex gap-2 mb-4 ">
+     
+      <div className="flex gap-2 mb-4 w-full ">
         <input
           type="text"
           value={city}
@@ -64,19 +64,19 @@ export default function WeatherWidget() {
         />
         <button
           onClick={() => fetchWeather(city)}
-          className="bg-blue-500 text-white px-4 py-2 rounded "
+          className="bg-blue-500 text-white px-4 py-2 rounded  "
         >
           Get Weather
         </button>
       </div>
 
-      {/* Loading State */}
+      
       {loading && <p>Loading...</p>}
 
-      {/* Error Message */}
+      
       {error && <p className="text-red-500">{error}</p>}
 
-      {/* Weather Display */}
+      
       {weather && !loading && !error && (
         <>
           <img src={weather.icon} alt={weather.condition} className="w-16 h-16" />
