@@ -16,23 +16,30 @@ export default function Home() {
   const handleGetStarted =async()=>{
     router.push("/auth")
   }
+  
 
   useEffect(()=>{
     const fetchUser = async()=>{
       const {data} = await supabase.auth.getUser();
       setUser(data.user);
-      if(user){
-        router.push("/dashboard")
-      }else{
-        return;
-      }
+      
     }
     fetchUser();
-},[router])
+  },[]);
+  useEffect(()=>{
+    if(user){
+      router.push("/dashboard");
+    }else{
+      return;
+    }
+  },[user,router])
+
 
   
   
     return (
+      
+    
       <div className="min-h-screen flex flex-col bg-white text-black">
         <header className="p-4 border-b border-gray-200">
           <div className="container mx-auto flex justify-between items-center">
@@ -113,6 +120,7 @@ export default function Home() {
           </div>
         </footer>
       </div>
+      
     )
    
   
