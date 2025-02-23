@@ -13,7 +13,7 @@ export default function NewsFeedWidget() {
 
     try {
       const res = await fetch(
-        `https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=${API_KEY}`
+        `https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`
       );
       const data = await res.json();
       console.log("API Response:", data); // 🔍 Debugging line

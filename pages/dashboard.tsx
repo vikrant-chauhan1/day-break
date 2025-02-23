@@ -8,7 +8,7 @@ import StockMarketWidget from "../components/StockMarketWidget"
 import { useEffect, useState } from "react";
 import supabase from "@/lib/supabase";
 import { useRouter } from "next/navigation";
-import Navbar from "@/components/Navbar";
+
 import "../app/globals.css"
 import { Sun } from "lucide-react";
 
@@ -76,10 +76,10 @@ export default function Dashboard() {
           <div className="md:col-span-2 lg:col-span-3 row-span-2">
             <NewsFeedWidget />
           </div>
-          <div className="md:col-span-2 lg:col-span-2 row-span-2">
+          <div className="md:col-span-2 lg:col-span-3 row-span-3">
             <EmailCalendarWidget />
           </div>
-          <div className="md:col-span-2 lg:col-span-2 row-span-2">
+          <div className="md:col-span-2 lg:col-span-3 row-span-2">
             <TodoListWidget />
           </div>
           <div className="md:col-span-2 lg:col-span-3">

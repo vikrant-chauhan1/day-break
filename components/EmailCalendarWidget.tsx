@@ -10,7 +10,7 @@ export default function EmailCalendarWidget() {
     ]
   
     return (
-      <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-6 h-full">
+      <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-6 w-full h-full">
         <h2 className="text-xl font-semibold mb-4">Emails & Calendar</h2>
         <div className="mb-4">
           <h3 className="font-semibold mb-2">Recent Emails:</h3>
