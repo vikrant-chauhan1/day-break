@@ -43,8 +43,16 @@ export default function TodoListWidget() {
 
   return (
     <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-6 h-full">
-      <h2 className="text-xl font-semibold mb-4">To-Do List</h2>
-      <button onClick={handleAddModalState}>add task</button>
+      <div className="flex justify-between items-center mb-4">
+        <h2 className="text-xl font-semibold">To-Do List</h2>
+      <button 
+        onClick={handleAllClear} 
+        className="bg-gray-300 text-black px-4 py-2 rounded-lg transition duration-200 hover:bg-red-500 hover:text-white"
+      >
+       Clear All
+      </button>
+      </div>
+      
       
       <ul className="space-y-2">
         {todos.map((todo) => (
@@ -63,13 +71,16 @@ export default function TodoListWidget() {
         {openAddModal &&
           <form onSubmit={handleSubmit}>
             <input type="text" value={newTask} onChange={(e)=>{setNewTask(e.target.value)}} placeholder="Enter a new task" required/>
-            <button type="submit">Add task</button>
+            <button type="submit" className="bg-gray-300 text-black px-1 py-1 ml-2 rounded-lg transition duration-200 hover:bg-blue-600 hover:text-white">Add Task</button>
             
           </form>
         
         }
       </ul>
-      <button onClick={handleAllClear}>clear all</button>
+      <button onClick={handleAddModalState} className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg transition duration-200 hover:bg-blue-600">
+        Add Task
+      </button>
+      
     </div>
   )
 }
