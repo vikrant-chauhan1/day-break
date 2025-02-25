@@ -70,21 +70,22 @@ export default function Dashboard() {
         <h1 className="text-3xl font-bold mb-8 text-center">Hello {user.email}!</h1>
         
         <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 auto-rows-[minmax(150px,auto)]">
-          <div className="md:col-span-2 lg:col-span-3 row-span-2">
+        <div className="md:col-span-2 lg:col-span-7 row-span-1">
+            <GitHubStatsWidget />
+          </div>
+          <div className="md:col-span-2 lg:col-span-2 row-span-2">
             <WeatherWidget />
           </div>
-          <div className="md:col-span-2 lg:col-span-3 row-span-2">
+          <div className="md:col-span-2 lg:col-span-4 row-span-2">
             <NewsFeedWidget />
           </div>
           <div className="md:col-span-2 lg:col-span-3 row-span-3">
-            <EmailCalendarWidget />
-          </div>
-          <div className="md:col-span-2 lg:col-span-3 row-span-2">
             <TodoListWidget />
           </div>
-          <div className="md:col-span-2 lg:col-span-3">
-            <GitHubStatsWidget />
+          <div className="md:col-span-2 lg:col-span-3 row-span-3">
+            <TodoListWidget />
           </div>
+         
           <div className="md:col-span-2 lg:col-span-3">
             <StockMarketWidget />
           </div>

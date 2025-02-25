@@ -56,7 +56,7 @@ export default function TodoListWidget() {
       
       <ul className="space-y-2">
         {todos.map((todo) => (
-          <li key={todo.id} className="flex items-center">
+          <li key={todo.id} className="flex items-center mt-3 mb-3">
             <input
               type="checkbox"
               checked={todo.done}
