@@ -30,3 +30,56 @@ body {
 a{
   cursor: pointer;
 }
+
+
+
+.timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+/* 🔥 Focus Mode Animation */
+.focus-mode {
+  border: 5px solid #141414;
+  box-shadow: 0 0 20px rgba(24, 24, 24, 0.6);
+  animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 10px rgba(16, 16, 16, 0.4);
+  }
+  to {
+    box-shadow: 0 0 25px rgba(11, 10, 10, 0.8);
+  }
+}
+
+/* ☕ Break Mode Animation */
+.break-mode {
+  border: 5px solid #3498db;
+  position: relative;
+}
+
+.break-mode::after {
+  content: "☕";
+  font-size: 2rem;
+  position: absolute;
+  top: -30px;
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}

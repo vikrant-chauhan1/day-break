@@ -5,6 +5,7 @@ import EmailCalendarWidget from "../components/EmailCalendarWidget"
 import TodoListWidget from "../components/TodoListWidget"
 import GitHubStatsWidget from "../components/GitHubStatsWidget"
 import StockMarketWidget from "../components/StockMarketWidget"
+import PomodoroWidget from "@/components/Pomodoro";
 import { useEffect, useState } from "react";
 import supabase from "@/lib/supabase";
 import { useRouter } from "next/navigation";
@@ -83,7 +84,7 @@ export default function Dashboard() {
             <TodoListWidget />
           </div>
           <div className="md:col-span-2 lg:col-span-3 row-span-3">
-            <TodoListWidget />
+            <PomodoroWidget />
           </div>
          
           <div className="md:col-span-2 lg:col-span-3">
