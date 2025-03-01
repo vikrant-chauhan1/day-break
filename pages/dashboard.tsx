@@ -1,9 +1,9 @@
 "use client";
 import WeatherWidget from "../components/WeatherWidget"
 import NewsFeedWidget from "../components/NewsFeedWidget"
-import EmailCalendarWidget from "../components/EmailCalendarWidget"
+
 import TodoListWidget from "../components/TodoListWidget"
-import GitHubStatsWidget from "../components/GitHubStatsWidget"
+
 import StockMarketWidget from "../components/StockMarketWidget"
 import PomodoroWidget from "@/components/Pomodoro";
 import { useEffect, useState } from "react";
@@ -12,6 +12,7 @@ import { useRouter } from "next/navigation";
 
 import "../app/globals.css"
 import { Sun } from "lucide-react";
+import MotivationalQuoteWidget from "../components/Motivation";
 
 export default function Dashboard() {
   const [user, setUser] = useState<any>(null);
@@ -72,7 +73,7 @@ export default function Dashboard() {
         
         <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4 auto-rows-[minmax(150px,auto)]">
         <div className="md:col-span-2 lg:col-span-7 row-span-1">
-            <GitHubStatsWidget />
+            <MotivationalQuoteWidget />
           </div>
           <div className="md:col-span-2 lg:col-span-2 row-span-2">
             <WeatherWidget />
@@ -87,7 +88,7 @@ export default function Dashboard() {
             <PomodoroWidget />
           </div>
          
-          <div className="md:col-span-2 lg:col-span-3">
+          <div className="md:col-span-2 lg:col-span-6">
             <StockMarketWidget />
           </div>
 

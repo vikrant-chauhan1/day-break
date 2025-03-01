@@ -136,7 +136,7 @@ export default function Auth(){
                    {loading ? "Signing up..." : "Sign Up"}
                 </button>
               </p>
-              <p className="text-xs text-gray-500 px-2">*note once registerd please verify your email before login</p>
+              
             </div>
           </div>
         </main>

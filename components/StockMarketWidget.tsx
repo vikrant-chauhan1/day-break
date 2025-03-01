@@ -1,48 +1,55 @@
-export default function StockMarketWidget() {
-    const stocks = [
-      { symbol: "AAPL", price: 150.25, change: 2.5 },
-      { symbol: "GOOGL", price: 2750.8, change: -0.8 },
-      { symbol: "TSLA", price: 725.6, change: 1.2 },
-    ]
-  
-    const crypto = [
-      { symbol: "BTC", price: 45000, change: 3.2 },
-      { symbol: "ETH", price: 3200, change: 1.5 },
-    ]
-  
-    return (
-      <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-6 h-full">
-        <h2 className="text-xl font-semibold mb-4">Stock Market & Crypto</h2>
-        <div className="grid grid-cols-2 gap-4">
-          <div>
-            <h3 className="font-semibold mb-2">Stocks</h3>
-            <ul className="space-y-2">
-              {stocks.map((stock, index) => (
-                <li key={index} className="text-sm">
-                  <span className="font-medium">{stock.symbol}</span>: ${stock.price.toFixed(2)}
-                  <span className={`ml-1 ${stock.change >= 0 ? "text-green-600" : "text-red-600"}`}>
-                    {stock.change >= 0 ? "▲" : "▼"} {Math.abs(stock.change)}%
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h3 className="font-semibold mb-2">Crypto</h3>
-            <ul className="space-y-2">
-              {crypto.map((coin, index) => (
-                <li key={index} className="text-sm">
-                  <span className="font-medium">{coin.symbol}</span>: ${coin.price.toFixed(2)}
-                  <span className={`ml-1 ${coin.change >= 0 ? "text-green-600" : "text-red-600"}`}>
-                    {coin.change >= 0 ? "▲" : "▼"} {coin.change}%
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+"use client";
+
+import React, { useEffect, useRef, memo } from "react";
+
+const TradingViewWidget = () => {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    // Clear existing widget to prevent multiple instances
+    containerRef.current.innerHTML = "";
+
+    const script = document.createElement("script");
+    script.src = "https://s3.tradingview.com/external-embedding/embed-widget-stock-heatmap.js";
+    script.type = "text/javascript";
+    script.async = true;
+    script.innerHTML = JSON.stringify({
+      "exchanges": [
+            "BSE"
+          ],
+      dataSource: "SENSEX", 
+      
+      grouping: "sector",
+      blockSize: "market_cap_basic",
+      blockColor: "change",
+      locale: "en",
+      symbolUrl: "",
+      colorTheme: "light",
+      hasTopBar: false,
+      isDataSetEnabled: false,
+      isZoomEnabled: true,
+      hasSymbolTooltip: true,
+      isMonoSize: false,
+      width: "100%",
+      height: "500", // Adjust height dynamically
+    });
+
+    containerRef.current.appendChild(script);
+  }, []);
+
+  return (
+    <div className="tradingview-widget-container">
+      <h2 className="text-xl font-semibold mb-4">Stock Market Overview</h2>
+      <div ref={containerRef} className="tradingview-widget-container__widget"></div>
+      <div className="tradingview-widget-copyright">
+        <a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank">
+          <span className="blue-text">Track all markets on TradingView</span>
+        </a>
       </div>
-    )
-  }
-  
-  
+    </div>
+  );
+};
+
+export default memo(TradingViewWidget);
