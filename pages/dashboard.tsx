@@ -3,7 +3,7 @@ import WeatherWidget from "../components/WeatherWidget"
 import NewsFeedWidget from "../components/NewsFeedWidget"
 
 import TodoListWidget from "../components/TodoListWidget"
-import { User } from "@supabase/auth-helpers-nextjs";
+ import { User } from "@supabase/supabase-js"; ;
 
 
 import StockMarketWidget from "../components/StockMarketWidget"

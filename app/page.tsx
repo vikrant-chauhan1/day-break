@@ -2,7 +2,7 @@
 import { useRouter } from "next/navigation";
 import supabase from "@/lib/supabase";
 import { useEffect, useState } from "react";
-import { User } from "@supabase/auth-helpers-nextjs";
+import { User } from "@supabase/supabase-js"; 
 import Link from "next/link";
 import { Sun, Newspaper, CloudSun, TrendingUp, CheckSquare, Target, Quote } from "lucide-react";
 
