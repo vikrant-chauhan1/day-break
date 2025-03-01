@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-const API_KEY = process.env.NEXT_PUBLIC_NEWS_API_KEY;
+
 
 export default function NewsFeedWidget() {
   const [news, setNews] = useState<{ title: string; source: string ;link:string }[]>([]);
@@ -13,10 +13,10 @@ export default function NewsFeedWidget() {
 
     try {
       const res = await fetch(
-        `https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`
+        "/api/news"
       );
       const data = await res.json();
-      console.log("API Response:", data); // 🔍 Debugging line
+    
 
       if (!res.ok) {
         throw new Error(data.message || "Failed to fetch news");
