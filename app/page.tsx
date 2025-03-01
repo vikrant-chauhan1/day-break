@@ -103,9 +103,10 @@ export default function Home() {
       <footer className="py-6 border-t border-gray-200">
         <div className="container mx-auto text-center">
           <p>&copy; 2025 DayBreak. All rights reserved.</p>
-          <p>Made by <a href="https://github.com/vikrant-chauhan1">Vikrant Chauhan</a></p>
+          
         </div>
       </footer>
     </div>
   );
+  //<p>Made by <a href="https://github.com/vikrant-chauhan1">Vikrant Chauhan</a></p>
 }
