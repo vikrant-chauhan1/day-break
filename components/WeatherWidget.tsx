@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 const API_KEY = process.env.NEXT_PUBLIC_API_KEY_WEATHER;
 
@@ -47,7 +48,7 @@ export default function WeatherWidget() {
   
   useEffect(() => {
     fetchWeather(city);
-  }, []);
+  }, [city]);
 
   return (
     <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-6 h-full flex flex-col items-center flex-grow">
@@ -79,7 +80,7 @@ export default function WeatherWidget() {
       
       {weather && !loading && !error && (
         <>
-          <img src={weather.icon} alt={weather.condition} className="w-16 h-16" />
+          <Image src={weather.icon} alt={weather.condition}  width={90} height={90} />
           <p className="text-2xl font-bold">{weather.temp}°C</p>
           <p className="text-gray-600">{weather.condition}</p>
           <p className="text-gray-600">{weather.city}</p>

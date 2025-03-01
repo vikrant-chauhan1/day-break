@@ -3,6 +3,8 @@ import WeatherWidget from "../components/WeatherWidget"
 import NewsFeedWidget from "../components/NewsFeedWidget"
 
 import TodoListWidget from "../components/TodoListWidget"
+import { User } from "@supabase/auth-helpers-nextjs";
+
 
 import StockMarketWidget from "../components/StockMarketWidget"
 import PomodoroWidget from "@/components/Pomodoro";
@@ -15,8 +17,8 @@ import { Sun } from "lucide-react";
 import MotivationalQuoteWidget from "../components/Motivation";
 
 export default function Dashboard() {
-  const [user, setUser] = useState<any>(null);
-  const [loading, setLoading] = useState(false);
+  const [user, setUser] = useState<User | null>(null);
+ 
   const router = useRouter();
 
   useEffect(() => {
@@ -39,10 +41,10 @@ export default function Dashboard() {
   }, [router]); // Added `router` as a dependency
 
   const handleLogout = async () => {
-    setLoading(true);
+   
     await supabase.auth.signOut();
     router.push("/auth");
-    setLoading(false);
+    
   };
 
   if (!user) {

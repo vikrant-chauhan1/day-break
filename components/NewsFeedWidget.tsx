@@ -23,10 +23,10 @@ export default function NewsFeedWidget() {
       }
 
       setNews(
-        data.articles?.map((article: any) => ({
+        data.articles?.map((article: { title: string; source: { name: string }; url: string }) => ({
           title: article.title,
           source: article.source.name,
-          link:article.url,
+          link: article.url,
         })) || []
       );
     } catch (err) {

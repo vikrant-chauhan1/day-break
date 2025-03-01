@@ -128,7 +128,7 @@ export default function Auth(){
     
             <div className="text-center">
               <p className="text-sm text-gray-600">
-                Don't have an account?{" "}
+                Don&apos;t have an account?{" "}
                 <button className="text-black underline font-medium hover:text-gray-800"
                   onClick={handleSignUp}
                   disabled={loading}
